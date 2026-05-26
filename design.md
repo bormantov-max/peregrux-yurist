@@ -269,7 +269,7 @@ Use 4–5 compact items:
 - Дистанционно
 - Анализ по фото постановления
 - Штрафы по массе и осям
-- Ространснадзор и ГИБДД
+- Ространснадзор и автоматические весовые рамки
 
 Do not use unverified numbers:
 - 500+ дел
@@ -480,3 +480,8 @@ Before finishing any design or code task, check:
 - Are fake cases/counters absent?
 - Is the design strict and professional?
 - Is there no horizontal scroll?
+
+
+## 22. Topic Restriction
+
+Не использовать ГИБДД в карточках услуг, SEO, trust-bar, FAQ, текстах лендинга и CTA. Проект не продвигает направление штрафов ГИБДД.
