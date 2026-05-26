@@ -4,435 +4,93 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Оспорить штраф за перегруз — юрист по перегрузу по массе и осям</title>
-  <meta name="description" content="Юридическая помощь перевозчикам и владельцам грузового транспорта. Оспаривание штрафов за перегруз по массе, осям, автоматическим рамкам, постановлениям Ространснадзора и ГИБДД. Работаем по всей России." />
+  <meta name="description" content="Юридическая помощь перевозчикам и владельцам грузового транспорта. Оспаривание штрафов за перегруз по массе, осям, автоматическим весовым рамкам и постановлениям Ространснадзора. Работаем по всей России." />
   <style>
-    :root {
-      --bg: #F8FAFC;
-      --surface: #FFFFFF;
-      --dark: #0F172A;
-      --dark-2: #1E293B;
-      --text: #111827;
-      --muted: #64748B;
-      --accent: #F59E0B;
-      --success: #22C55E;
-      --danger: #EF4444;
-      --radius: 14px;
-      --shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
-      --container: 1160px;
-    }
+    :root { --bg:#F8FAFC;--surface:#FFF;--dark:#0F172A;--dark2:#1E293B;--text:#111827;--muted:#64748B;--accent:#F59E0B;--success:#22C55E;--danger:#EF4444; }
+    *{box-sizing:border-box} html,body{overflow-x:hidden;scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}.section{padding:76px 0;scroll-margin-top:96px}.grid-4,.grid-3,.grid-5,.grid-6{display:grid;gap:16px}.grid-4{grid-template-columns:repeat(4,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-5{grid-template-columns:repeat(5,1fr)}.grid-6{grid-template-columns:repeat(3,1fr)}
+    .card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:22px}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
+    header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e2e8f0}
+    .header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{font-weight:800;color:var(--dark);text-decoration:none;white-space:nowrap}
+    .main-nav{display:flex;gap:14px;flex-wrap:wrap}.main-nav a{font-size:.92rem;color:var(--dark2);text-decoration:none}
+    .header-actions{display:flex;gap:8px;align-items:center}
+    .menu-btn{display:none;min-height:44px;padding:10px 12px;border:1px solid #cbd5e1;background:#fff;border-radius:10px;font-weight:700}
+    .mobile-nav{display:none;padding:0 0 12px;gap:8px;flex-wrap:wrap}
+    .mobile-nav a{font-size:.9rem;color:var(--dark2);text-decoration:none;padding:6px 0}
 
-    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
-    .section { padding: 72px 0; }
-    .section h2 { font-size: clamp(1.7rem, 2.8vw, 2.2rem); margin: 0 0 14px; color: var(--dark); }
-    .section-lead { color: var(--muted); margin: 0 0 28px; max-width: 760px; }
+    .btn{min-height:48px;padding:12px 16px;border-radius:12px;border:0;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .btn-accent{background:var(--accent);color:#111}.btn-outline{background:#fff;border:1px solid #cbd5e1;color:var(--dark)}
 
-    header {
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .header-inner {
-      height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    }
-    .logo { font-weight: 800; color: var(--dark); font-size: 1rem; letter-spacing: .2px; }
-    nav { display: flex; gap: 16px; flex-wrap: wrap; }
-    nav a { color: var(--dark-2); text-decoration: none; font-size: .93rem; }
-    nav a:hover { color: var(--accent); }
+    .hero{padding:64px 0 56px;background:linear-gradient(160deg,#f8fafc,#eef2ff)}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}.hero h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:0 0 12px}.hero p{color:var(--muted)}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.hero-note{margin-top:14px;font-weight:600}
+    .hero-card .amount{font-size:2rem;font-weight:800}.status{background:#fef3c7;padding:5px 10px;border-radius:999px;font-size:.8rem}.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{background:#f1f5f9;border-radius:999px;padding:4px 9px;font-size:.8rem}
 
-    .btn {
-      border: 0; border-radius: 10px; padding: 12px 18px; font-weight: 600;
-      cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      transition: .2s ease;
-    }
-    .btn-primary { background: var(--dark); color: #fff; }
-    .btn-primary:hover { background: var(--dark-2); }
-    .btn-outline { background: #fff; color: var(--dark); border: 1px solid #cbd5e1; }
-    .btn-outline:hover { border-color: var(--dark); }
-    .btn-accent { background: var(--accent); color: #111827; }
-    .btn-accent:hover { filter: brightness(0.95); }
+    .trust{background:var(--dark);padding:16px 0;color:#cbd5e1}.trust div{font-size:.92rem}
+    .cta-strip{margin-top:20px;background:#fff7ed;border:1px solid #fed7aa;padding:16px;border-radius:14px;display:flex;gap:12px;justify-content:space-between;align-items:center}
+    .doc-preview{border:1px solid #cbd5e1;background:#f8fafc;padding:10px;border-radius:12px;margin-bottom:10px}.doc-badge{display:inline-block;background:#e2e8f0;border-radius:999px;padding:3px 8px;font-size:.72rem;margin-bottom:8px}.line{height:8px;background:#dbe3ec;border-radius:4px;margin-bottom:6px}.line.s{width:70%}.line.m{width:85%}.line.bl{width:64%;background:repeating-linear-gradient(90deg,#cbd5e1,#cbd5e1 6px,#e2e8f0 6px,#e2e8f0 12px)}
+    .faq-item{border:1px solid #dbe3ec;border-radius:12px;background:#fff;overflow:hidden}.faq-question{width:100%;padding:14px 16px;text-align:left;border:0;background:#fff;font-weight:700;display:flex;justify-content:space-between}.faq-answer{max-height:0;overflow:hidden;padding:0 16px;color:var(--muted)}.faq-item.active .faq-answer{max-height:220px;padding:0 16px 14px}
+    .floating-tg{position:fixed;right:12px;bottom:12px;background:var(--success);color:#fff;text-decoration:none;border-radius:999px;padding:12px 16px;min-height:44px;z-index:900}
+    .contacts a{color:var(--dark);text-decoration:none;font-weight:600}
 
-    .hero {
-      padding: 90px 0 64px;
-      background: linear-gradient(160deg, #ffffff 0%, #edf2f7 60%, #f8fafc 100%);
-    }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; }
-    .hero h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
-      color: var(--dark);
-    }
-    .hero p { color: var(--muted); margin: 0 0 24px; max-width: 680px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-card {
-      background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px;
-      border: 1px solid #e2e8f0;
-    }
-    .hero-card h3 { margin: 0 0 8px; color: var(--dark); }
-    .hero-card ul { margin: 0; padding-left: 18px; color: var(--dark-2); }
+    .modal{position:fixed;inset:0;background:#020617a3;display:none;align-items:center;justify-content:center;padding:20px;z-index:1200}.modal.open{display:flex}.modal-box{max-width:560px;width:100%;background:#fff;border-radius:16px;padding:20px}.close-btn{border:0;background:none;font-size:24px;cursor:pointer}.checkbox{display:flex;gap:8px;font-size:.92rem;color:var(--muted)}
 
-    .trust-bar { background: var(--dark); color: #fff; padding: 16px 0; }
-    .trust-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .trust-item { font-size: .95rem; color: #cbd5e1; }
-
-    .grid-3, .grid-4 { display: grid; gap: 18px; }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .card {
-      background: var(--surface); border: 1px solid #e2e8f0; border-radius: var(--radius);
-      padding: 20px; box-shadow: var(--shadow);
-    }
-    .card h3 { margin: 0 0 8px; color: var(--dark); font-size: 1.05rem; }
-    .card p, .card li { margin: 0; color: var(--muted); }
-    .card ul { padding-left: 18px; margin: 0; }
-
-    .step { position: relative; padding-left: 44px; }
-    .step-num {
-      position: absolute; left: 0; top: 0;
-      width: 30px; height: 30px; border-radius: 999px;
-      background: var(--dark); color: #fff; display: grid; place-items: center; font-size: .85rem;
-    }
-
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #f1f5f9; color: var(--dark-2); padding: 6px 10px; border-radius: 999px; font-size: .82rem;
-      margin-bottom: 12px;
-    }
-
-    .faq { display: grid; gap: 12px; }
-    .faq-item {
-      border: 1px solid #dbe3ec;
-      border-radius: 12px;
-      background: #fff;
-      overflow: hidden;
-    }
-    .faq-question {
-      width: 100%; text-align: left; padding: 16px 18px;
-      border: 0; background: #fff; cursor: pointer; font-weight: 600; color: var(--dark);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .faq-answer {
-      max-height: 0; overflow: hidden; transition: max-height .25s ease;
-      padding: 0 18px; color: var(--muted);
-    }
-    .faq-item.active .faq-answer { padding: 0 18px 16px; max-height: 220px; }
-
-    .final-cta {
-      background: linear-gradient(120deg, var(--dark), var(--dark-2)); color: #fff;
-      border-radius: 20px; padding: 34px;
-    }
-    .final-cta h2 { color: #fff; margin-top: 0; }
-    .final-cta p { color: #cbd5e1; margin-bottom: 20px; }
-
-    footer { padding: 30px 0 44px; color: var(--muted); font-size: .92rem; }
-    .contacts { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 0; }
-    .contacts a { color: var(--dark); text-decoration: none; font-weight: 600; }
-
-    .floating-tg {
-      position: fixed; right: 18px; bottom: 18px; z-index: 1100;
-      background: var(--success); color: #fff; border-radius: 999px;
-      padding: 13px 16px; text-decoration: none; box-shadow: var(--shadow); font-weight: 700;
-    }
-
-    .modal {
-      position: fixed; inset: 0; background: rgba(2,6,23,.64);
-      display: none; align-items: center; justify-content: center; z-index: 1200; padding: 20px;
-    }
-    .modal.open { display: flex; }
-    .modal-box {
-      width: min(560px, 100%); background: #fff; border-radius: 16px; padding: 22px;
-      box-shadow: 0 30px 60px rgba(2,6,23,.35);
-    }
-    .modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-    .close-btn { border: 0; background: transparent; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
-
-    form { display: grid; gap: 12px; }
-    label { font-weight: 600; color: var(--dark); font-size: .93rem; }
-    input, textarea {
-      width: 100%; border: 1px solid #cbd5e1; border-radius: 10px; padding: 11px 12px; font: inherit;
-      outline: none;
-    }
-    input:focus, textarea:focus { border-color: var(--accent); }
-    .error { color: var(--danger); font-size: .84rem; min-height: 1em; }
-    .ok { color: var(--success); font-size: .9rem; }
-
-    @media (max-width: 960px) {
-      .hero-grid, .grid-4 { grid-template-columns: 1fr 1fr; }
-      .trust-items { grid-template-columns: 1fr 1fr; }
-      nav { display: none; }
-    }
-    @media (max-width: 700px) {
-      .hero-grid, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .section { padding: 58px 0; }
-      .header-inner { height: 68px; }
-      .floating-tg { left: 12px; right: 12px; text-align: center; }
-    }
+    @media (max-width:1100px){.main-nav{display:none}.menu-btn{display:inline-flex}.mobile-nav.open{display:flex}}
+    @media (max-width:960px){.grid-5{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}.hero-grid{grid-template-columns:1fr}.grid-6{grid-template-columns:1fr 1fr}}
+    @media (max-width:700px){.section{padding:54px 0;scroll-margin-top:86px}.header-inner{height:64px}.grid-3,.grid-4,.grid-5,.grid-6{grid-template-columns:1fr}.hero{padding-top:34px}.hero-actions{flex-direction:column}.btn{min-height:44px}.header-actions .btn-accent{display:none}.floating-tg{bottom:8px}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container header-inner">
-      <div class="logo">Юрист по перегрузу • РФ</div>
-      <nav>
-        <a href="#for-whom">Кому помогаем</a>
-        <a href="#fines">Штрафы</a>
-        <a href="#process">Как работаем</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a class="btn btn-primary" href="tel:+79039128212">Позвонить</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="top">
-      <div class="container hero-grid">
-        <div>
-          <h1>Помогаем оспорить штрафы за перегруз по массе и осям</h1>
-          <p>Сопровождаем перевозчиков и владельцев грузового транспорта по делам о перегрузе: анализируем постановление, проверяем нарушения процедуры фиксации, готовим правовую позицию и документы для обжалования.</p>
-          <div class="hero-actions">
-            <button class="btn btn-accent" data-open-modal>Получить первичный анализ</button>
-            <a class="btn btn-outline" href="https://t.me/mlynchak_consult" target="_blank" rel="noopener">Написать в Telegram</a>
-          </div>
-        </div>
-        <aside class="hero-card">
-          <h3>Первичный разбор включает:</h3>
-          <ul>
-            <li>оценку перспектив обжалования постановления;</li>
-            <li>проверку сроков и процессуальных оснований;</li>
-            <li>перечень документов для вашей ситуации.</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section class="trust-bar">
-      <div class="container trust-items">
-        <div class="trust-item">Работаем с делами по всей России</div>
-        <div class="trust-item">Практика по штрафам Ространснадзора и ГИБДД</div>
-        <div class="trust-item">Учитываем специфику перевозок и документооборота</div>
-        <div class="trust-item">Прозрачный порядок работы и этапов</div>
-      </div>
-    </section>
-
-    <section class="section" id="for-whom">
-      <div class="container">
-        <h2>Кому помогаем</h2>
-        <p class="section-lead">Фокус на практике для грузоперевозок и собственников коммерческого транспорта.</p>
-        <div class="grid-3">
-          <article class="card"><h3>Перевозчики</h3><p>Юридическое сопровождение по постановлениям, полученным при выполнении рейсов.</p></article>
-          <article class="card"><h3>Владельцы ТС</h3><p>Анализируем ответственность собственника и водителя, распределение рисков по документам.</p></article>
-          <article class="card"><h3>Логистические компании</h3><p>Помогаем выстроить подход к массовым штрафам и повторяющимся сценариям.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="fines">
-      <div class="container">
-        <h2>С какими штрафами работаем</h2>
-        <div class="grid-4">
-          <article class="card"><h3>Перегруз по общей массе</h3><p>Ситуации по превышению допустимых параметров ТС.</p></article>
-          <article class="card"><h3>Перегруз по осям</h3><p>Разбор расчетов и корректности определения нагрузки на оси.</p></article>
-          <article class="card"><h3>Автоматические рамки</h3><p>Проверка корректности фиксации и идентификации транспортного средства.</p></article>
-          <article class="card"><h3>Постановления органов</h3><p>Работа с материалами Ространснадзора и ГИБДД в рамках закона.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="reasons">
-      <div class="container">
-        <h2>Почему штраф можно оспаривать</h2>
-        <div class="grid-3">
-          <article class="card"><span class="badge">Основание 1</span><h3>Процессуальные нарушения</h3><p>Ошибки в оформлении и вручении документов могут иметь значение для исхода дела.</p></article>
-          <article class="card"><span class="badge">Основание 2</span><h3>Спорная фиксация</h3><p>Технические и методические нюансы автоматической фиксации требуют проверки.</p></article>
-          <article class="card"><span class="badge">Основание 3</span><h3>Недостаточная доказательная база</h3><p>Не каждое постановление содержит полный набор подтверждающих материалов.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <h2>Как проходит работа</h2>
-        <div class="grid-4">
-          <article class="card step"><span class="step-num">1</span><h3>Получаем документы</h3><p>Постановление, данные по маршруту и сопроводительные бумаги.</p></article>
-          <article class="card step"><span class="step-num">2</span><h3>Проводим анализ</h3><p>Проверяем фактуру, сроки и юридические основания для обжалования.</p></article>
-          <article class="card step"><span class="step-num">3</span><h3>Готовим позицию</h3><p>Формируем аргументацию и пакет процессуальных документов.</p></article>
-          <article class="card step"><span class="step-num">4</span><h3>Сопровождаем</h3><p>Ведем дело на выбранном этапе: досудебно и/или в суде.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="cases">
-      <div class="container">
-        <h2>Примеры ситуаций</h2>
-        <div class="grid-3">
-          <article class="card"><h3>Постановление с рамки при спорной погоде</h3><p>Проверяется корректность фиксации и соблюдение процедурных требований.</p></article>
-          <article class="card"><h3>Несколько штрафов по одному маршруту</h3><p>Анализируется взаимосвязь эпизодов и правовая стратегия по каждому.</p></article>
-          <article class="card"><h3>Спор по роли владельца и перевозчика</h3><p>Оценивается распределение ответственности по договорным документам.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="benefits">
-      <div class="container">
-        <h2>Почему обращаются к нам</h2>
-        <div class="grid-3">
-          <article class="card"><h3>Узкая специализация</h3><p>Работаем именно с делами о перегрузе в грузовых перевозках.</p></article>
-          <article class="card"><h3>Понятная коммуникация</h3><p>Объясняем риски, сроки и этапы простым деловым языком.</p></article>
-          <article class="card"><h3>Аккуратная процессуальная работа</h3><p>Внимание к деталям документов и соблюдению сроков обжалования.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="container">
-        <h2>FAQ</h2>
-        <div class="faq">
-          <div class="faq-item">
-            <button class="faq-question">Сколько времени есть на обжалование? <span>+</span></button>
-            <div class="faq-answer"><p>Срок зависит от вида постановления и стадии дела. Рекомендуем направить документы сразу после получения, чтобы не упустить процессуальные сроки.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Можно ли обратиться, если штрафов несколько? <span>+</span></button>
-            <div class="faq-answer"><p>Да. Мы группируем материалы по эпизодам и выстраиваем стратегию по каждому постановлению отдельно либо в связке.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Работаете ли вы удаленно? <span>+</span></button>
-            <div class="faq-answer"><p>Да, работаем дистанционно по всей России: принимаем документы онлайн и согласуем каждый этап сопровождения.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="final-cta">
-          <h2>Нужен первичный анализ постановления?</h2>
-          <p>Оставьте заявку — свяжемся с вами, уточним детали и подскажем оптимальный порядок действий в вашей ситуации.</p>
-          <div class="hero-actions">
-            <button class="btn btn-accent" data-open-modal>Оставить заявку</button>
-            <a class="btn btn-outline" href="tel:+79039128212">+7 903 912-82-12</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <strong>Юридическая помощь по штрафам за перегруз</strong>
-      <div class="contacts">
-        <a href="tel:+79039128212">Телефон: +7 903 912-82-12</a>
-        <a href="https://t.me/mlynchak_consult" target="_blank" rel="noopener">Telegram: @mlynchak_consult</a>
-        <span>MAX: по номеру +7 903 912-82-12</span>
-      </div>
-      <div>© 2026. Все права защищены. Информация на сайте не является публичной офертой.</div>
-    </div>
-  </footer>
-
-  <a class="floating-tg" href="https://t.me/mlynchak_consult" target="_blank" rel="noopener">Telegram</a>
-
-  <div class="modal" id="leadModal" aria-hidden="true">
-    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-head">
-        <h3 id="modalTitle">Заявка на первичный анализ</h3>
-        <button class="close-btn" type="button" data-close-modal>&times;</button>
-      </div>
-      <form id="leadForm" novalidate>
-        <div>
-          <label for="name">Ваше имя</label>
-          <input id="name" name="name" type="text" placeholder="Например, Андрей" />
-          <div class="error" id="nameError"></div>
-        </div>
-        <div>
-          <label for="phone">Телефон</label>
-          <input id="phone" name="phone" type="tel" placeholder="+7 9XX XXX-XX-XX" />
-          <div class="error" id="phoneError"></div>
-        </div>
-        <div>
-          <label for="comment">Кратко о ситуации</label>
-          <textarea id="comment" name="comment" rows="4" placeholder="Номер постановления, дата, регион, краткая суть"></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">Отправить заявку</button>
-        <div class="ok" id="formOk"></div>
-      </form>
+<header>
+  <div class="container header-inner">
+    <a class="brand" href="#top">Юрист по перегрузу</a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="#for-whom">Кому помогаем</a><a href="#fines">Штрафы</a><a href="#process">Как работаем</a><a href="#cases">Ситуации</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-outline" href="tel:+79039128212">Позвонить</a>
+      <button class="btn btn-accent" data-open-modal>Отправить постановление</button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">Меню</button>
     </div>
   </div>
-
-  <script>
-    const modal = document.getElementById('leadModal');
-    const openButtons = document.querySelectorAll('[data-open-modal]');
-    const closeButtons = document.querySelectorAll('[data-close-modal]');
-
-    openButtons.forEach(btn => btn.addEventListener('click', () => {
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-    }));
-
-    closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
-    modal.addEventListener('click', e => {
-      if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    function closeModal() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-    }
-
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const active = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-        if (!active) item.classList.add('active');
-      });
-    });
-
-    const form = document.getElementById('leadForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name');
-      const phone = document.getElementById('phone');
-      const nameError = document.getElementById('nameError');
-      const phoneError = document.getElementById('phoneError');
-      const formOk = document.getElementById('formOk');
-
-      nameError.textContent = '';
-      phoneError.textContent = '';
-      formOk.textContent = '';
-
-      let valid = true;
-
-      if (name.value.trim().length < 2) {
-        valid = false;
-        nameError.textContent = 'Укажите имя (минимум 2 символа).';
-      }
-
-      const digits = phone.value.replace(/\D/g, '');
-      if (digits.length < 11) {
-        valid = false;
-        phoneError.textContent = 'Укажите корректный номер телефона.';
-      }
-
-      if (!valid) return;
-
-      formOk.textContent = 'Заявка принята. Мы свяжемся с вами в ближайшее время.';
-      form.reset();
-      setTimeout(closeModal, 1200);
-    });
-  </script>
+  <nav class="container mobile-nav" id="mobileNav" aria-label="Мобильная навигация">
+    <a href="#for-whom">Кому помогаем</a><a href="#fines">Штрафы</a><a href="#process">Как работаем</a><a href="#cases">Ситуации</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
+  </nav>
+</header>
+<main id="top">
+<section class="hero"><div class="container hero-grid"><div><h1>Помогаем оспорить штрафы за перегруз по массе и осям</h1><p>Проводим первичный анализ постановлений и документов, объясняем риски, сроки и порядок обжалования.</p><div class="hero-actions"><button class="btn btn-accent" data-open-modal>Отправить постановление на анализ</button><a class="btn btn-outline" href="https://t.me/mlynchak_consult" target="_blank" rel="noopener">Написать в Telegram</a></div><div class="hero-note">Достаточно фото или скана постановления</div></div><aside class="card hero-card"><div style="display:flex;justify-content:space-between"><h3>Постановление о штрафе</h3><span class="status">требуется проверка</span></div><div class="amount">150 000–600 000 ₽</div><div class="tags"><span class="tag">масса</span><span class="tag">оси</span><span class="tag">рамка</span><span class="tag">Ространснадзор</span></div><div class="line"></div><div class="line m"></div><div class="line s"></div></aside></div></section>
+<section class="trust"><div class="container grid-5"><div>По всей России</div><div>Работаем дистанционно</div><div>Анализ по фото постановления</div><div>Штрафы по массе и осям</div><div>Ространснадзор и весовые рамки</div></div></section>
+<section class="section" id="for-whom"><div class="container"><h2>Кому помогаем</h2><div class="grid-4"><article class="card"><h3>Владельцам грузового транспорта</h3></article><article class="card"><h3>ИП-перевозчикам</h3></article><article class="card"><h3>Транспортным компаниям</h3></article><article class="card"><h3>Логистическим компаниям</h3></article></div></div></section>
+<section class="section" id="fines"><div class="container"><h2>С какими штрафами работаем</h2><div class="grid-6"><article class="card"><h3>Превышение общей массы</h3></article><article class="card"><h3>Превышение осевой нагрузки</h3></article><article class="card"><h3>Автоматические весовые рамки АСВГК/АПВГК</h3></article><article class="card"><h3>Постановления Ространснадзора</h3></article><article class="card"><h3>Штрафы с весового контроля</h3></article><article class="card"><h3>Споры по документам перевозки</h3></article></div><div class="cta-strip"><strong>Не уверены, какой у вас тип штрафа? Пришлите постановление — разберём.</strong><button class="btn btn-accent" data-open-modal>Отправить постановление</button></div></div></section>
+<section class="section"><div class="container"><h2>Почему штраф можно оспаривать</h2><div class="card"><ul><li>ошибка автоматической рамки или весового контроля;</li><li>неверно определена масса или нагрузка на ось;</li><li>нарушена процедура оформления материалов;</li><li>есть документы, подтверждающие другую картину перевозки;</li><li>ответственность может быть возложена не на то лицо;</li><li>пропущены или неверно оформлены процессуальные действия.</li></ul><p><strong>Не каждый штраф можно отменить. Поэтому сначала нужно проверить постановление и документы.</strong></p></div></div></section>
+<section class="section" id="process"><div class="container"><h2>Как проходит работа</h2><div class="grid-3"><article class="card">1. Вы отправляете постановление</article><article class="card">2. Мы проводим первичный анализ</article><article class="card">3. Согласовываем стратегию</article><article class="card">4. Готовим жалобу и пакет документов</article><article class="card">5. Сопровождаем подачу и рассмотрение</article></div></div></section>
+<section class="section" id="cases"><div class="container"><h2>Примеры ситуаций</h2><div class="grid-4"><article class="card"><div class="doc-preview"><span class="doc-badge">постановление</span><div class="line"></div><div class="line m"></div><div class="line bl"></div></div><h3>Штраф с автоматической рамки</h3></article><article class="card"><div class="doc-preview"><span class="doc-badge">постановление</span><div class="line"></div><div class="line s"></div><div class="line bl"></div></div><h3>Штраф на юридическое лицо</h3></article><article class="card"><div class="doc-preview"><span class="doc-badge">постановление</span><div class="line"></div><div class="line m"></div><div class="line bl"></div></div><h3>Спор по массе груза</h3></article><article class="card"><div class="doc-preview"><span class="doc-badge">постановление</span><div class="line"></div><div class="line s"></div><div class="line bl"></div></div><h3>Постановление Ространснадзора</h3></article></div></div></section>
+<section class="section" id="faq"><div class="container"><h2>FAQ</h2><div class="faq">
+<div class="faq-item"><button class="faq-question">Сколько времени есть на обжалование штрафа?<span>+</span></button><div class="faq-answer"><p>Срок зависит от процессуального документа, лучше направить материалы сразу после получения.</p></div></div>
+<div class="faq-item"><button class="faq-question">Можно ли оспорить штраф, если он уже оплачен?<span>+</span></button><div class="faq-answer"><p>Да, в ряде ситуаций возможно, но нужно смотреть документы и сроки.</p></div></div>
+<div class="faq-item"><button class="faq-question">Что нужно отправить для первичного анализа?<span>+</span></button><div class="faq-answer"><p>Фото или скан постановления, при наличии — сопроводительные документы по перевозке.</p></div></div>
+<div class="faq-item"><button class="faq-question">Вы работаете по всей России?<span>+</span></button><div class="faq-answer"><p>Да, формат работы дистанционный.</p></div></div>
+<div class="faq-item"><button class="faq-question">Можно ли гарантировать отмену штрафа?<span>+</span></button><div class="faq-answer"><p>Нет, гарантии результата недопустимы; сначала делается правовая оценка.</p></div></div>
+<div class="faq-item"><button class="faq-question">Сколько стоит помощь?<span>+</span></button><div class="faq-answer"><p>Стоимость зависит от объёма материалов и стадии спора, обсуждается после анализа.</p></div></div>
+<div class="faq-item"><button class="faq-question">Что делать, если срок уже прошёл?<span>+</span></button><div class="faq-answer"><p>Нужно проверить возможность восстановления срока и обосновать причины пропуска.</p></div></div>
+<div class="faq-item"><button class="faq-question">Можно ли просто отправить фото постановления в Telegram?<span>+</span></button><div class="faq-answer"><p>Да, этого достаточно для старта первичной оценки.</p></div></div>
+</div></div></section>
+<section class="section" id="contacts"><div class="container contacts"><button class="btn btn-accent" data-open-modal>Оставить заявку</button> <a class="btn btn-outline" href="tel:+79039128212">Позвонить</a> <a class="btn btn-outline" href="https://t.me/mlynchak_consult" target="_blank" rel="noopener">Написать в Telegram</a></div></section>
+</main>
+<a class="floating-tg" href="https://t.me/mlynchak_consult" target="_blank" rel="noopener">Telegram</a>
+<div class="modal" id="leadModal"><div class="modal-box"><div style="display:flex;justify-content:space-between;align-items:center"><h3>Заявка на первичный анализ</h3><button class="close-btn" data-close-modal>&times;</button></div><form id="leadForm"><label>Имя<input id="name" type="text"></label><div id="nameError" class="error"></div><label>Телефон<input id="phone" type="tel"></label><div id="phoneError" class="error"></div><label>Комментарий<textarea id="comment"></textarea></label><label class="checkbox"><input id="agree" type="checkbox">Согласен(а) на обработку персональных данных</label><div id="agreeError" class="error"></div><button class="btn btn-accent" type="submit">Получить анализ</button><div id="formOk" class="ok"></div></form></div></div>
+<script>
+const modal=document.getElementById('leadModal');
+document.querySelectorAll('[data-open-modal]').forEach(b=>b.addEventListener('click',()=>modal.classList.add('open')));
+function closeModal(){modal.classList.remove('open')}
+document.querySelectorAll('[data-close-modal]').forEach(b=>b.addEventListener('click',closeModal));
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.querySelectorAll('.faq-question').forEach(btn=>btn.addEventListener('click',()=>{const i=btn.parentElement;const a=i.classList.contains('active');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('active'));if(!a)i.classList.add('active');}));
+const menuBtn=document.getElementById('menuBtn');const mobileNav=document.getElementById('mobileNav');
+menuBtn.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));});
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}));
+document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('name');const phone=document.getElementById('phone');const agree=document.getElementById('agree');const nErr=document.getElementById('nameError');const pErr=document.getElementById('phoneError');const aErr=document.getElementById('agreeError');const ok=document.getElementById('formOk');nErr.textContent=pErr.textContent=aErr.textContent=ok.textContent='';let valid=true;if(name.value.trim().length<2){nErr.textContent='Укажите имя';valid=false}if(phone.value.replace(/\D/g,'').length<11){pErr.textContent='Укажите корректный телефон';valid=false}if(!agree.checked){aErr.textContent='Нужно согласие';valid=false}if(!valid)return;ok.textContent='Заявка сформирована. Сейчас для прототипа подключение формы не настроено.';e.target.reset();});
+</script>
 </body>
 </html>
