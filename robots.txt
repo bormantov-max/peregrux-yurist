@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bormantov-max.github.io/peregrux-yurist/sitemap.xml
