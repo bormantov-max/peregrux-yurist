@@ -4,4 +4,8 @@
     <loc>https://bormantov-max.github.io/peregrux-yurist/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://bormantov-max.github.io/peregrux-yurist/cases.html</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
