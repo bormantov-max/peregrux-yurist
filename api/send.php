@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 ini_set('display_errors', '0');
 error_reporting(E_ALL);
+ob_start();
 header('Content-Type: application/json; charset=utf-8');
 
 const SUCCESS_MESSAGE = 'Заявка отправлена';
@@ -10,8 +11,58 @@ const ERROR_MESSAGE = 'Не удалось отправить заявку';
 const MAX_ATTACHMENT_SIZE = 10485760;
 const UPLOADS_RELATIVE_DIR = 'uploads/leads';
 
+$responseSent = false;
+
+set_error_handler(static function (): bool {
+    return true;
+});
+
+set_exception_handler(static function (Throwable $exception): void {
+    json_response(false, ERROR_MESSAGE);
+});
+
+register_shutdown_function(static function (): void {
+    global $responseSent;
+
+    if ($responseSent) {
+        return;
+    }
+
+    $error = error_get_last();
+    $fatalTypes = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR];
+
+    if (!is_array($error) || !in_array((int) ($error['type'] ?? 0), $fatalTypes, true)) {
+        return;
+    }
+
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
+    if (!headers_sent()) {
+        header('Content-Type: application/json; charset=utf-8');
+    }
+
+    echo json_encode([
+        'success' => false,
+        'message' => ERROR_MESSAGE,
+    ], JSON_UNESCAPED_UNICODE);
+});
+
 function json_response(bool $success, string $message): void
 {
+    global $responseSent;
+
+    $responseSent = true;
+
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
+    if (!headers_sent()) {
+        header('Content-Type: application/json; charset=utf-8');
+    }
+
     echo json_encode([
         'success' => $success,
         'message' => $message,
@@ -286,8 +337,6 @@ if (trim(post_value('website')) !== '') {
     json_response(true, SUCCESS_MESSAGE);
 }
 
-$attachment = handle_attachment();
-
 $configPath = __DIR__ . '/config.php';
 if (!is_file($configPath)) {
     json_response(false, ERROR_MESSAGE);
@@ -306,6 +355,8 @@ $page = clean_text(post_value('page'), 500);
 if ($phone === '') {
     json_response(false, ERROR_MESSAGE);
 }
+
+$attachment = handle_attachment();
 
 $createdAt = date('c');
 $ip = client_ip();
