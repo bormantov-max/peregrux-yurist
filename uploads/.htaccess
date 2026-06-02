@@ -1,0 +1,10 @@
+<IfModule mod_authz_core.c>
+  <FilesMatch "\.(php|php5|phtml|phar)$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "\.(php|php5|phtml|phar)$">
+    Deny from all
+  </FilesMatch>
+</IfModule>
