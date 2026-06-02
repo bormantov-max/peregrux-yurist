@@ -1,2 +1,4 @@
 api/config.php
 data/leads.json
+uploads/leads/*
+!uploads/leads/.gitkeep

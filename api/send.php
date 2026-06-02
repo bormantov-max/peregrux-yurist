@@ -7,6 +7,8 @@ header('Content-Type: application/json; charset=utf-8');
 
 const SUCCESS_MESSAGE = 'Заявка отправлена';
 const ERROR_MESSAGE = 'Не удалось отправить заявку';
+const MAX_ATTACHMENT_SIZE = 10485760;
+const UPLOADS_RELATIVE_DIR = 'uploads/leads';
 
 function json_response(bool $success, string $message): void
 {
@@ -55,6 +57,15 @@ function lead_id(): string
     }
 }
 
+function random_suffix(): string
+{
+    try {
+        return bin2hex(random_bytes(8));
+    } catch (Throwable $exception) {
+        return str_replace('.', '', uniqid('', true));
+    }
+}
+
 function client_ip(): string
 {
     $keys = ['HTTP_CF_CONNECTING_IP', 'HTTP_X_REAL_IP', 'REMOTE_ADDR'];
@@ -73,6 +84,115 @@ function client_ip(): string
     }
 
     return '';
+}
+
+function base_url(): string
+{
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+
+    if (!is_string($host) || trim($host) === '') {
+        $host = 'pravomlynchak.ru';
+    }
+
+    $host = preg_replace('/[^A-Za-z0-9.\-:]/', '', $host) ?? 'pravomlynchak.ru';
+    if ($host === '') {
+        $host = 'pravomlynchak.ru';
+    }
+
+    $https = $_SERVER['HTTPS'] ?? '';
+    $scheme = (!empty($https) && strtolower((string) $https) !== 'off') ? 'https' : 'http';
+
+    return $scheme . '://' . $host;
+}
+
+function attachment_error_message(int $error): string
+{
+    if ($error === UPLOAD_ERR_INI_SIZE || $error === UPLOAD_ERR_FORM_SIZE) {
+        return 'Файл слишком большой. Максимальный размер — 10 MB.';
+    }
+
+    return 'Не удалось загрузить файл. Попробуйте приложить jpg, png или pdf до 10 MB.';
+}
+
+function handle_attachment(): ?array
+{
+    if (!isset($_FILES['attachment']) || !is_array($_FILES['attachment'])) {
+        return null;
+    }
+
+    $file = $_FILES['attachment'];
+    $error = (int) ($file['error'] ?? UPLOAD_ERR_NO_FILE);
+
+    if ($error === UPLOAD_ERR_NO_FILE) {
+        return null;
+    }
+
+    if ($error !== UPLOAD_ERR_OK) {
+        json_response(false, attachment_error_message($error));
+    }
+
+    $tmpName = $file['tmp_name'] ?? '';
+    if (!is_string($tmpName) || $tmpName === '' || !is_uploaded_file($tmpName)) {
+        json_response(false, 'Не удалось проверить загруженный файл. Попробуйте приложить jpg, png или pdf.');
+    }
+
+    $size = (int) ($file['size'] ?? 0);
+    if ($size <= 0) {
+        json_response(false, 'Файл пустой. Приложите jpg, png или pdf до 10 MB.');
+    }
+
+    if ($size > MAX_ATTACHMENT_SIZE) {
+        json_response(false, 'Файл слишком большой. Максимальный размер — 10 MB.');
+    }
+
+    $originalName = clean_text((string) ($file['name'] ?? ''), 255);
+    $extension = strtolower((string) pathinfo($originalName, PATHINFO_EXTENSION));
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+
+    if (!in_array($extension, $allowedExtensions, true)) {
+        json_response(false, 'Недопустимый формат файла. Разрешены jpg, jpeg, png и pdf.');
+    }
+
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    if ($finfo === false) {
+        json_response(false, 'Не удалось проверить тип файла. Попробуйте ещё раз.');
+    }
+
+    $mime = finfo_file($finfo, $tmpName);
+    finfo_close($finfo);
+
+    $allowedMimeByExtension = [
+        'jpg' => ['image/jpeg'],
+        'jpeg' => ['image/jpeg'],
+        'png' => ['image/png'],
+        'pdf' => ['application/pdf'],
+    ];
+
+    if (!is_string($mime) || !in_array($mime, $allowedMimeByExtension[$extension], true)) {
+        json_response(false, 'Тип файла не совпадает с разрешёнными форматами. Приложите jpg, png или pdf.');
+    }
+
+    $uploadsDir = dirname(__DIR__) . '/' . UPLOADS_RELATIVE_DIR;
+    if (!is_dir($uploadsDir) && !@mkdir($uploadsDir, 0755, true) && !is_dir($uploadsDir)) {
+        json_response(false, 'Не удалось подготовить папку для загрузки файла.');
+    }
+
+    $storedName = 'lead_' . date('Ymd_His') . '_' . random_suffix() . '.' . $extension;
+    $destination = $uploadsDir . '/' . $storedName;
+
+    if (!@move_uploaded_file($tmpName, $destination)) {
+        json_response(false, 'Не удалось сохранить файл. Попробуйте ещё раз.');
+    }
+
+    @chmod($destination, 0644);
+
+    return [
+        'original_name' => $originalName,
+        'stored_name' => $storedName,
+        'url' => base_url() . '/' . UPLOADS_RELATIVE_DIR . '/' . rawurlencode($storedName),
+        'mime' => $mime,
+        'size' => $size,
+    ];
 }
 
 function save_lead(array $lead, string $path): bool
@@ -166,6 +286,8 @@ if (trim(post_value('website')) !== '') {
     json_response(true, SUCCESS_MESSAGE);
 }
 
+$attachment = handle_attachment();
+
 $configPath = __DIR__ . '/config.php';
 if (!is_file($configPath)) {
     json_response(false, ERROR_MESSAGE);
@@ -198,6 +320,7 @@ $lead = [
     'page' => $page,
     'ip' => $ip,
     'user_agent' => $userAgent,
+    'attachment' => $attachment,
 ];
 
 $message = implode("\n", [
@@ -207,6 +330,7 @@ $message = implode("\n", [
     'Телефон: ' . display_value($phone),
     'Комментарий: ' . display_value($comment),
     'Страница: ' . display_value($page),
+    'Файл: ' . ($attachment === null ? 'не приложен' : $attachment['url']),
     'Дата: ' . display_value($createdAt),
     'IP: ' . display_value($ip),
 ]);
