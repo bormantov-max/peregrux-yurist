@@ -96,3 +96,11 @@ PHP-обработчик формы работает на Timeweb или дру�
 9. Если файл был приложен, проверьте, что он открывается по ссылке из Telegram.
 
 Реальные токены и рабочий файл `api/config.php` не нужно добавлять в репозиторий.
+
+## SEO production checklist
+
+- Canonical domain: https://pravomlynchak.ru/
+- Redirects: http→https, www→non-www, /index.html→/
+- Sitemap: https://pravomlynchak.ru/sitemap.xml
+- Robots: https://pravomlynchak.ru/robots.txt
+- После деплоя отправить главную страницу и `cases.html` в Google Search Console и Яндекс Вебмастер.
