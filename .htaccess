@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.pravomlynchak\.ru$ [NC]
+RewriteRule ^(.*)$ https://pravomlynchak.ru/$1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://pravomlynchak.ru/ [R=301,L]

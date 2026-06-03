@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /uploads/leads/
 
-Sitemap: https://bormantov-max.github.io/peregrux-yurist/sitemap.xml
+Sitemap: https://pravomlynchak.ru/sitemap.xml
